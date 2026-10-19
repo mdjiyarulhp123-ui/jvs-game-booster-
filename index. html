@@ -3,78 +3,119 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07100b">
 <title>JVS GAME BOOSTER</title>
 <style>
-body{margin:0;background:#080d0a;color:white;font-family:Arial;padding:16px}
-h1,h2{color:#39ff75}
-.card{background:#142019;padding:16px;border-radius:12px;margin:14px 0}
-button,a{background:#39ff75;color:#071009;padding:10px;border:0;border-radius:7px;font-weight:bold;text-decoration:none}
-input{display:block;width:95%;padding:10px;margin:10px 0;background:#080d0a;color:white;border:1px solid #39ff75}
-.game{padding:12px;background:#080d0a;margin:10px 0;border-radius:8px}
-label{display:block;padding:10px 0}
+*{box-sizing:border-box}
+body{margin:0;background:#07100b;color:#fff;font-family:Arial,sans-serif}
+header{text-align:center;padding:25px 10px;background:#102018;border-bottom:2px solid #39ff75}
+header h1{color:#39ff75;font-size:25px;margin:0}
+header p{color:#b7c9bc}
+main{max-width:650px;margin:auto;padding:14px}
+.card{background:#111c14;border:1px solid #294b32;border-radius:14px;padding:17px;margin-bottom:16px}
+h2{color:#39ff75;font-size:20px}
+button,.btn{display:inline-block;background:#39ff75;color:#07100b;padding:12px 15px;border:0;border-radius:8px;text-decoration:none;font-weight:bold;cursor:pointer}
+input[type=text],input[type=url]{width:100%;padding:12px;margin:8px 0 14px;background:#07100b;color:#fff;border:1px solid #39ff75;border-radius:8px}
+.game{padding:13px;margin:10px 0;background:#07100b;border-radius:9px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.game span{overflow-wrap:anywhere}
+.task{display:block;padding:12px 0;border-bottom:1px solid #294b32}
+.task input{accent-color:#39ff75}
+small{color:#b7c9bc}
+footer{text-align:center;padding:20px;color:#b7c9bc}
 </style>
 </head>
 <body>
+<header>
 <h1>⚡ JVS GAME BOOSTER</h1>
-<p>Welcome Gamer! 🎮</p>
+<p>PLAY SMART • GAME BETTER</p>
+</header>
 
+<main>
 <div class="card">
-<h2>🎮 Game Zone</h2>
-<div class="game">Free Fire MAX<br><br>
-<a href="https://play.google.com/store/search?q=Free%20Fire%20MAX&c=apps">OPEN GAME</a></div>
-<div class="game">Subway Surfers<br><br>
-<a href="https://play.google.com/store/search?q=Subway%20Surfers&c=apps">OPEN GAME</a></div>
+<h2>🎮 Welcome Gamer!</h2>
+<p>Apne favourite games ke links yahan se kholo.</p>
+<a class="btn" href="#games">START GAMING</a>
+</div>
+
+<div class="card" id="games">
+<h2>🎯 GAME ZONE</h2>
+<div class="game"><span>Free Fire MAX</span><a class="btn" href="https://play.google.com/store/search?q=Free%20Fire%20MAX&c=apps">OPEN</a></div>
+<div class="game"><span>Subway Surfers</span><a class="btn" href="https://play.google.com/store/search?q=Subway%20Surfers&c=apps">OPEN</a></div>
+<div class="game"><span>Asphalt 8</span><a class="btn" href="https://play.google.com/store/search?q=Asphalt%208&c=apps">OPEN</a></div>
 </div>
 
 <div class="card">
-<h2>➕ Add Game Link</h2>
-<input id="name" placeholder="Game ka naam">
-<input id="url" placeholder="https:// game link">
-<button onclick="addGame()">ADD GAME</button>
-<div id="mygames"></div>
+<h2>➕ ADD YOUR GAME</h2>
+<label for="gameName">Game ka naam</label>
+<input type="text" id="gameName" placeholder="Game name">
+<label for="gameUrl">HTTPS game link</label>
+<input type="url" id="gameUrl" placeholder="https://example.com">
+<button type="button" onclick="addGame()">ADD GAME</button>
+<div id="customGames"></div>
 </div>
 
 <div class="card">
-<h2>🚀 Game Booster Checklist</h2>
-<label><input type="checkbox"> Background apps check karo</label>
-<label><input type="checkbox"> Graphics Smooth par rakho</label>
-<label><input type="checkbox"> Downloads pause karo</label>
-<label><input type="checkbox"> Phone thanda rakho</label>
-<button onclick="alert('Gaming checklist check kar lo!')">READY TO PLAY</button>
+<h2>🚀 BOOSTER CHECKLIST</h2>
+<p><small>Gaming se pehle in baaton ko check karo.</small></p>
+<label class="task"><input type="checkbox"> Background apps check karo</label>
+<label class="task"><input type="checkbox"> Graphics Smooth par rakho</label>
+<label class="task"><input type="checkbox"> Downloads pause karo</label>
+<label class="task"><input type="checkbox"> Phone ko thanda rakho</label>
+<p id="count">0 / 4 complete</p>
+<button type="button" onclick="resetChecks()">RESET</button>
 </div>
 
 <div class="card">
-<h2>💡 Lag Fix Tips</h2>
-<p>✔ Free Fire MAX ki graphics Smooth karo.</p>
-<p>✔ Bade downloads rok do.</p>
-<p>✔ Phone garam ho to break lo.</p>
-<p>✔ Stable internet use karo.</p>
+<h2>💡 LAG KAM KARNE KE TIPS</h2>
+<p>✅ Free Fire MAX mein Smooth graphics try karo.</p>
+<p>✅ Gaming ke waqt bade downloads rok do.</p>
+<p>✅ Phone garam ho to break lo.</p>
+<p>✅ Stable internet connection use karo.</p>
+<p>✅ Phone ki storage mein jagah khaali rakho.</p>
+<small>Note: Website khud RAM ya FPS nahi badhati. Yeh safe tips aur game links deti hai.</small>
 </div>
+</main>
+
+<footer>© 2026 JVS GAME BOOSTER</footer>
 
 <script>
 function addGame(){
- var n=document.getElementById('name').value.trim();
- var u=document.getElementById('url').value.trim();
- if(!n||!u){alert('Game name aur link bharo');return;}
- try{
-  var link=new URL(u);
-  if(link.protocol!=='https:'){
-   alert('HTTPS link use karo');return;
-  }
-  var a=document.createElement('a');
-  a.href=link.href;
-  a.target='_blank';
-  a.rel='noopener noreferrer';
-  a.textContent='OPEN GAME';
-  var d=document.createElement('div');
-  d.className='game';
-  d.appendChild(document.createTextNode(n+' '));
-  d.appendChild(a);
-  document.getElementById('mygames').appendChild(d);
-  document.getElementById('name').value='';
-  document.getElementById('url').value='';
- }catch(e){alert('Sahi HTTPS link dalo');}
+ var name=document.getElementById("gameName").value.trim();
+ var url=document.getElementById("gameUrl").value.trim();
+ if(!name||!url){alert("Game ka naam aur link bharo.");return;}
+ if(!/^https:\/\//i.test(url)){alert("Link https:// se shuru hona chahiye.");return;}
+ var box=document.getElementById("customGames");
+ var row=document.createElement("div");
+ row.className="game";
+ var title=document.createElement("span");
+ title.textContent=name;
+ var link=document.createElement("a");
+ link.className="btn";
+ link.href=url;
+ link.target="_blank";
+ link.rel="noopener noreferrer";
+ link.textContent="OPEN";
+ row.appendChild(title);
+ row.appendChild(link);
+ box.appendChild(row);
+ document.getElementById("gameName").value="";
+ document.getElementById("gameUrl").value="";
+}
+function updateCount(){
+ var checks=document.querySelectorAll(".task input");
+ var done=0;
+ for(var i=0;i<checks.length;i++){if(checks[i].checked)done++;}
+ document.getElementById("count").textContent=done+" / "+checks.length+" complete";
+}
+function resetChecks(){
+ var checks=document.querySelectorAll(".task input");
+ for(var i=0;i<checks.length;i++){checks[i].checked=false;}
+ updateCount();
+}
+var allChecks=document.querySelectorAll(".task input");
+for(var i=0;i<allChecks.length;i++){
+ allChecks[i].addEventListener("change",updateCount);
 }
 </script>
 </body>
