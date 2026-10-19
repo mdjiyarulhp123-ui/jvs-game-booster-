@@ -4,191 +4,78 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080d0a">
 <title>JVS GAME BOOSTER</title>
 <style>
-*{box-sizing:border-box}
-:root{--green:#39ff75;--bg:#080d0a;--card:#111a14}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,sans-serif}
-header{padding:20px 12px;text-align:center;background:#101a13;border-bottom:1px solid #244a30}
-.logo{font-size:25px;font-weight:900;color:var(--green)}
-header p{font-size:12px;color:#b8c9bb}
-nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:12px}
-nav a{color:var(--green);text-decoration:none;border:1px solid #2a5135;padding:9px;border-radius:8px;font-size:13px}
-main{max-width:700px;margin:auto;padding:12px}
-.card{background:var(--card);border:1px solid #263d2c;border-radius:15px;padding:16px;margin-bottom:15px}
-.hero{text-align:center;padding:25px 15px;background:linear-gradient(135deg,#153c22,#111a14)}
-h1{color:var(--green);font-size:27px}
-h2{font-size:19px;color:var(--green);margin-top:0}
-p{line-height:1.5}
-.small{font-size:12px;color:#b6c5ba}
-button,.btn{display:inline-block;background:var(--green);color:#071009;border:0;border-radius:8px;padding:11px 14px;font-weight:bold;text-decoration:none;cursor:pointer}
-input{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #36553e;border-radius:8px;background:#080d0a;color:#fff}
-.game{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px;margin:9px 0;background:#080f0a;border:1px solid #263d2c;border-radius:10px}
-.game strong{display:block;margin-bottom:5px;overflow-wrap:anywhere}
-.game .btn{flex-shrink:0}
-.task{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #263d2c}
-.task input{width:19px;height:19px;margin:0;accent-color:var(--green);flex-shrink:0}
-#progress{color:var(--green);font-weight:bold}
-footer{text-align:center;color:#9aab9e;padding:25px;font-size:12px}
-@media(max-width:380px){.logo{font-size:21px}.game{align-items:flex-start}.game .btn{padding:10px;font-size:12px}}
+body{margin:0;background:#080d0a;color:white;font-family:Arial;padding:16px}
+h1,h2{color:#39ff75}
+.card{background:#142019;padding:16px;border-radius:12px;margin:14px 0}
+button,a{background:#39ff75;color:#071009;padding:10px;border:0;border-radius:7px;font-weight:bold;text-decoration:none}
+input{display:block;width:95%;padding:10px;margin:10px 0;background:#080d0a;color:white;border:1px solid #39ff75}
+.game{padding:12px;background:#080d0a;margin:10px 0;border-radius:8px}
+label{display:block;padding:10px 0}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">⚡ JVS GAME BOOSTER</div>
-  <p>YOUR GAME ZONE • PLAY SMART</p>
-</header>
+<h1>⚡ JVS GAME BOOSTER</h1>
+<p>Welcome Gamer! 🎮</p>
 
-<nav>
-  <a href="#home">Home</a>
-  <a href="#games">Games</a>
-  <a href="#add">Add Game</a>
-  <a href="#booster">Booster</a>
-</nav>
+<div class="card">
+<h2>🎮 Game Zone</h2>
+<div class="game">Free Fire MAX<br><br>
+<a href="https://play.google.com/store/search?q=Free%20Fire%20MAX&c=apps">OPEN GAME</a></div>
+<div class="game">Subway Surfers<br><br>
+<a href="https://play.google.com/store/search?q=Subway%20Surfers&c=apps">OPEN GAME</a></div>
+</div>
 
-<main>
-<section class="card hero" id="home">
-  <h1>LEVEL UP YOUR GAME!</h1>
-  <p>Apni gaming ke liye taiyar ho jao 🎮</p>
-  <a class="btn" href="#booster">START BOOSTER CHECK</a>
-  <p class="small">Lightweight • Mobile Friendly • Free</p>
-</section>
+<div class="card">
+<h2>➕ Add Game Link</h2>
+<input id="name" placeholder="Game ka naam">
+<input id="url" placeholder="https:// game link">
+<button onclick="addGame()">ADD GAME</button>
+<div id="mygames"></div>
+</div>
 
-<section class="card" id="games">
-  <h2>🎮 Game Zone</h2>
-  <p class="small">Game ke official store search page ko kholne ke liye OPEN dabao.</p>
-  <div id="gameList"></div>
-</section>
+<div class="card">
+<h2>🚀 Game Booster Checklist</h2>
+<label><input type="checkbox"> Background apps check karo</label>
+<label><input type="checkbox"> Graphics Smooth par rakho</label>
+<label><input type="checkbox"> Downloads pause karo</label>
+<label><input type="checkbox"> Phone thanda rakho</label>
+<button onclick="alert('Gaming checklist check kar lo!')">READY TO PLAY</button>
+</div>
 
-<section class="card" id="add">
-  <h2>➕ Add Your Game</h2>
-  <label for="gameName">Game ka naam</label>
-  <input id="gameName" maxlength="50" placeholder="Game name">
-  <label for="gameUrl">Game ka HTTPS link</label>
-  <input id="gameUrl" type="url" placeholder="https://..." inputmode="url">
-  <button id="addBtn" type="button">ADD GAME</button>
-  <p class="small">Tumhare add kiye gaye links isi browser mein save honge.</p>
-</section>
-
-<section class="card" id="booster">
-  <h2>🚀 Game Preparation</h2>
-  <p class="small">Kaam poora hone par checkbox tick karo.</p>
-  <label class="task"><input type="checkbox" class="taskBox"> Background apps check kiye</label>
-  <label class="task"><input type="checkbox" class="taskBox"> Game graphics Smooth/Low par rakhi</label>
-  <label class="task"><input type="checkbox" class="taskBox"> Downloads aur updates check kiye</label>
-  <label class="task"><input type="checkbox" class="taskBox"> Phone ko thanda rakha</label>
-  <p id="progress">0 / 4 complete</p>
-  <button id="resetBtn" type="button">RESET CHECKLIST</button>
-</section>
-
-<section class="card">
-  <h2>💡 Lag Kam Karne Ke Tips</h2>
-  <p>✅ Free Fire MAX mein Smooth graphics try karo.</p>
-  <p>✅ Bade downloads ko gaming ke waqt rok do.</p>
-  <p>✅ Phone garam ho to break lo.</p>
-  <p>✅ Wi-Fi ya mobile data mein jo stable ho, use karo.</p>
-  <p>✅ Phone restart karke dekho aur storage khaali rakho.</p>
-  <p class="small">Note: Yeh website hai. Yeh khud RAM clear nahi karti aur FPS badhane ki guarantee nahi deti.</p>
-</section>
-</main>
-
-<footer>© 2026 JVS GAME BOOSTER<br>Made with 💚</footer>
+<div class="card">
+<h2>💡 Lag Fix Tips</h2>
+<p>✔ Free Fire MAX ki graphics Smooth karo.</p>
+<p>✔ Bade downloads rok do.</p>
+<p>✔ Phone garam ho to break lo.</p>
+<p>✔ Stable internet use karo.</p>
+</div>
 
 <script>
-(function(){
-"use strict";
-
-var defaults=[
- {name:"Free Fire MAX",url:"https://play.google.com/store/search?q=Free%20Fire%20MAX&c=apps"},
- {name:"Subway Surfers",url:"https://play.google.com/store/search?q=Subway%20Surfers&c=apps"},
- {name:"Asphalt 8",url:"https://play.google.com/store/search?q=Asphalt%208&c=apps"}
-];
-
-function loadCustom(){
+function addGame(){
+ var n=document.getElementById('name').value.trim();
+ var u=document.getElementById('url').value.trim();
+ if(!n||!u){alert('Game name aur link bharo');return;}
  try{
-   var data=JSON.parse(localStorage.getItem("jvsGameBoosterGames")||"[]");
-   return Array.isArray(data)?data.filter(function(g){
-     return g && typeof g.name==="string" &&
-       typeof g.url==="string" && /^https:\/\//i.test(g.url);
-   }):[];
- }catch(e){return [];}
+  var link=new URL(u);
+  if(link.protocol!=='https:'){
+   alert('HTTPS link use karo');return;
+  }
+  var a=document.createElement('a');
+  a.href=link.href;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  a.textContent='OPEN GAME';
+  var d=document.createElement('div');
+  d.className='game';
+  d.appendChild(document.createTextNode(n+' '));
+  d.appendChild(a);
+  document.getElementById('mygames').appendChild(d);
+  document.getElementById('name').value='';
+  document.getElementById('url').value='';
+ }catch(e){alert('Sahi HTTPS link dalo');}
 }
-
-function renderGames(){
- var list=document.getElementById("gameList");
- list.textContent="";
- defaults.concat(loadCustom()).forEach(function(game){
-   var row=document.createElement("div");
-   row.className="game";
-   var info=document.createElement("div");
-   var title=document.createElement("strong");
-   title.textContent="🎮 "+game.name;
-   var sub=document.createElement("span");
-   sub.className="small";
-   sub.textContent="Official store search";
-   info.appendChild(title);
-   info.appendChild(sub);
-
-   var link=document.createElement("a");
-   link.className="btn";
-   link.textContent="OPEN";
-   link.href=game.url;
-   link.target="_blank";
-   link.rel="noopener noreferrer";
-
-   row.appendChild(info);
-   row.appendChild(link);
-   list.appendChild(row);
- });
-}
-
-document.getElementById("addBtn").addEventListener("click",function(){
- var name=document.getElementById("gameName").value.trim();
- var raw=document.getElementById("gameUrl").value.trim();
-
- if(!name||!raw){alert("Game ka naam aur link dono bharo.");return;}
- if(name.length>50){alert("Game ka naam chhota rakho.");return;}
-
- var url;
- try{url=new URL(raw);}catch(e){
-   alert("Valid link dalo jo https:// se shuru ho.");return;
- }
- if(url.protocol!=="https:"){
-   alert("Sirf HTTPS link allowed hai.");return;
- }
-
- try{
-   var saved=loadCustom();
-   saved.push({name:name,url:url.href});
-   localStorage.setItem("jvsGameBoosterGames",JSON.stringify(saved));
-   document.getElementById("gameName").value="";
-   document.getElementById("gameUrl").value="";
-   renderGames();
-   alert("Game link save ho gaya!");
- }catch(e){
-   alert("Save nahi hua. Browser storage available nahi hai.");
- }
-});
-
-var boxes=Array.prototype.slice.call(document.querySelectorAll(".taskBox"));
-
-function updateProgress(){
- var done=boxes.filter(function(b){return b.checked;}).length;
- document.getElementById("progress").textContent=done+" / "+boxes.length+" complete";
-}
-
-boxes.forEach(function(box){
- box.addEventListener("change",updateProgress);
-});
-
-document.getElementById("resetBtn").addEventListener("click",function(){
- boxes.forEach(function(box){box.checked=false;});
- updateProgress();
-});
-
-renderGames();
-})();
 </script>
 </body>
 </html>
